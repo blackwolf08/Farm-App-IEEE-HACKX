@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Platform
 } from 'react-native';
-
+import { Icon } from 'native-base';
 import { Card, Badge, Button, Block, Text } from '../components';
 import { theme, mocks } from '../constants';
 
@@ -108,6 +108,30 @@ class Browse extends Component {
             ))}
           </Block>
         </ScrollView>
+        <TouchableOpacity
+          style={{
+            position: 'absolute',
+            height: 70,
+            width: 70,
+            bottom: 70,
+            right: 30,
+            backgroundColor: 'rgba(41,216,143,0.8)',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 50
+          }}
+          onPress={() => {
+            this.props.navigation.navigate('Chat');
+          }}
+        >
+          <Icon
+            style={{
+              color: '#eee'
+            }}
+            name='ios-chatbubbles'
+            type='Ionicons'
+          />
+        </TouchableOpacity>
       </Block>
     );
   }
