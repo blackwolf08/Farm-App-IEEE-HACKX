@@ -12,6 +12,11 @@ import Browse from '../screens/Browse';
 import Product from '../screens/Product';
 import Settings from '../screens/Settings';
 import Chat from '../screens/Chat';
+import Irrigation from '../screens/Irrigation';
+import Weather from '../screens/Weather';
+import Sprinkle from '../screens/Sprinkle';
+import VR from '../screens/VR';
+import RecommendedCrops from '../screens/RecommendedCrops';
 
 import { theme } from '../constants';
 
@@ -25,7 +30,12 @@ const screens = createStackNavigator(
     Browse,
     Product,
     Settings,
-    Chat
+    Chat,
+    Irrigation,
+    Weather,
+    Sprinkle,
+    VR,
+    RecommendedCrops
   },
   {
     defaultNavigationOptions: {

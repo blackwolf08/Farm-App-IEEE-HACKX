@@ -10,13 +10,14 @@ import {
 import { Icon } from 'native-base';
 import { Card, Badge, Button, Block, Text } from '../components';
 import { theme, mocks } from '../constants';
+import explore_3 from '../assets/icons/plants_1.png';
 
 const { width } = Dimensions.get('window');
 const isAndroid = Platform.OS == 'android' ? true : false;
 
 class Browse extends Component {
   state = {
-    active: 'Products',
+    active: 'Services',
     categories: []
   };
 
@@ -53,7 +54,7 @@ class Browse extends Component {
   render() {
     const { profile, navigation } = this.props;
     const { categories } = this.state;
-    const tabs = ['Products', 'Inspirations', 'Shop'];
+    const tabs = ['Services'];
 
     return (
       <Block style={{ marginTop: isAndroid ? 50 : 30 }}>
@@ -84,28 +85,99 @@ class Browse extends Component {
           style={{ paddingVertical: theme.sizes.base * 2 }}
         >
           <Block flex={false} row space='between' style={styles.categories}>
-            {categories.map(category => (
-              <TouchableOpacity
-                key={category.name}
-                onPress={() => navigation.navigate('Explore', { category })}
-              >
-                <Card center middle shadow style={styles.category}>
-                  <Badge
-                    margin={[0, 0, 15]}
-                    size={50}
-                    color='rgba(41,216,143,0.20)'
-                  >
-                    <Image source={category.image} />
-                  </Badge>
-                  <Text medium height={20}>
-                    {category.name}
-                  </Text>
-                  <Text gray caption>
-                    {category.count} products
-                  </Text>
-                </Card>
-              </TouchableOpacity>
-            ))}
+            <TouchableOpacity onPress={() => navigation.navigate('Weather')}>
+              <Card center middle shadow style={styles.category}>
+                <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+                  color='rgba(41,216,143,0.20)'
+                >
+                  <Image source={explore_3} />
+                </Badge>
+                <Text medium height={20}>
+                  Weather
+                </Text>
+                <Text center gray caption>
+                  4 days Weather prediction
+                </Text>
+              </Card>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Irrigation')}>
+              <Card center middle shadow style={styles.category}>
+                <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+                  color='rgba(41,216,143,0.20)'
+                >
+                  <Image source={explore_3} />
+                </Badge>
+                <Text medium height={20}>
+                  Irrigation
+                </Text>
+                <Text
+                  style={{
+                    textAlign: 'center'
+                  }}
+                  gray
+                  caption
+                >
+                  Get the right method for you
+                </Text>
+              </Card>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('RecommendedCrops')}
+            >
+              <Card center middle shadow style={styles.category}>
+                <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+                  color='rgba(41,216,143,0.20)'
+                >
+                  <Image source={explore_3} />
+                </Badge>
+                <Text center medium height={20}>
+                  What Crops?
+                </Text>
+                <Text center gray caption>
+                  Crops
+                </Text>
+              </Card>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Sprinkle')}>
+              <Card center middle shadow style={styles.category}>
+                <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+                  color='rgba(41,216,143,0.20)'
+                >
+                  <Image source={explore_3} />
+                </Badge>
+                <Text medium height={20}>
+                  Sprinkler Today?
+                </Text>
+                <Text center gray caption>
+                  City based
+                </Text>
+              </Card>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('VR')}>
+              <Card center middle shadow style={styles.category}>
+                <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+                  color='rgba(41,216,143,0.20)'
+                >
+                  <Image source={explore_3} />
+                </Badge>
+                <Text medium height={20}>
+                  VR
+                </Text>
+                <Text center gray caption>
+                  Experience Crops diseases in VR
+                </Text>
+              </Card>
+            </TouchableOpacity>
           </Block>
         </ScrollView>
         <TouchableOpacity
